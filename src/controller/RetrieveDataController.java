@@ -1,11 +1,12 @@
 package controller;
 
-import model.DatabaseRequest;
-import model.RequestResponse;
+import rmi.base.DatabaseRequest;
+import rmi.base.RequestResponse;
 
 public class RetrieveDataController {
 	
-	private RequestResponse request_response;
+	private static DatabaseRequest database_request;
+	private static RequestResponse request_response;
 	
 	public RetrieveDataController() {
 		
@@ -14,8 +15,8 @@ public class RetrieveDataController {
 	public void execute(int mode, int outlet) {
 		try {
 			// Create the DatabaseRequest
-			DatabaseRequest request = new DatabaseRequest(mode, outlet);
-			RequestLauncher rmi_launcher = new RequestLauncher(request);
+			database_request = new DatabaseRequest(mode, outlet);
+			new RequestLauncher();
 		}
 		catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -23,6 +24,18 @@ public class RetrieveDataController {
 	}
 	
 	public RequestResponse getResponse() {
-		return this.request_response;
+		return request_response;
+	}
+	
+	public static void SetRequestResponse(RequestResponse to_set) {
+		request_response = to_set;
+	}
+	
+	public static DatabaseRequest GetDatabaseRequest() {
+		return database_request;
+	}
+	
+	public static void onCompleteRmi() {
+		System.out.println(request_response.toString());
 	}
 }

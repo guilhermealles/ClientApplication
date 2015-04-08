@@ -1,18 +1,19 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 import model.DatabaseRequest;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Font;
+import controller.RetrieveDataController;
 
 public class ClientApplicationView {
 
@@ -117,6 +118,7 @@ public class ClientApplicationView {
 	}
 	
 	void retrieveData(int mode, int outlet) {
-		
+		RetrieveDataController controller = new RetrieveDataController();
+		controller.execute(mode, outlet);
 	}
 }
