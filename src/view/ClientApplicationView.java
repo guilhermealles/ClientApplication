@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import model.DatabaseRequest;
+import rmi.base.DatabaseRequest;
 import controller.RetrieveDataController;
 
 public class ClientApplicationView {
