@@ -14,6 +14,8 @@ import rmi.base.RequestResponse;
 
 public class ResultsView extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+
 	private RequestResponse data;
 	
 	private JPanel contentPane;
@@ -38,7 +40,7 @@ public class ResultsView extends JFrame {
 	public ResultsView(RequestResponse data) {
 		this.data = data;
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 180, 240);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,8 +54,8 @@ public class ResultsView extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		ArrayList<Integer> id_list = data.getIdList();
-		ArrayList<Double> consumption_list = data.getConsumptionList();
+		ArrayList<Integer> id_list = this.data.getIdList();
+		ArrayList<Double> consumption_list = this.data.getConsumptionList();
 		
 		DefaultTableModel dft = new DefaultTableModel();
 		dft.addColumn("Outlet ID", id_list.toArray());

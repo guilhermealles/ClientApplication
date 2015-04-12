@@ -24,6 +24,7 @@ public class RequestLauncher extends RmiStarter {
 			
 			// Write the response in the controller
 			RetrieveDataController.SetRequestResponse(response);
+			RetrieveDataController.onCompleteRmi();
 		}
 		catch (Exception e) {
 			System.err.println(e.getMessage());
