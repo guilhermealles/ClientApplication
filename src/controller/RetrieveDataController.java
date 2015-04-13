@@ -37,7 +37,6 @@ public class RetrieveDataController {
 	}
 	
 	public static void onCompleteRmi() {
-		//System.out.println(request_response);
 		ResultsView.CreateResultsView(request_response);
 	}
 }
